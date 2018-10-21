@@ -27,7 +27,7 @@ public class ProgressMethods extends SelectElementByType implements BaseTest
 	public void waitForElementToDisplay(String accessType,String accessName,String duration)
 	{
 		By byEle = getelementbytype(accessType, accessName);
-		WebDriverWait wait = (new WebDriverWait(driver,Integer.parseInt(duration)*1000));
+		WebDriverWait wait = (new WebDriverWait(getDriver(),Integer.parseInt(duration)*1000));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(byEle));
 	}
 		
@@ -39,7 +39,7 @@ public class ProgressMethods extends SelectElementByType implements BaseTest
 	public void waitForElementToClick(String accessType,String accessName,String duration)
 	{
 		By byEle = getelementbytype(accessType, accessName);
-		WebDriverWait wait = (new WebDriverWait(driver,Integer.parseInt(duration)*1000));
+		WebDriverWait wait = (new WebDriverWait(getDriver(),Integer.parseInt(duration)*1000));
 		wait.until(ExpectedConditions.elementToBeClickable(byEle));
 	}
 	

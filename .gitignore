@@ -1,4 +1,7 @@
+.idea/
 /target
 settings.xml
 chromedriver
 geckodriver
+selenium-cucumber-java.iml
+/Screenshots

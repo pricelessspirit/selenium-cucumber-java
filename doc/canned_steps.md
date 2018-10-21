@@ -92,7 +92,15 @@ To assert that page title can be found use following step :
 
 	Then I should see page title having partial text as "(.*?)"
   Then I should not see page title having partial text as "(.*?)"
-    
+
+#### Steps For Asserting element focus
+ 	To assert is an element has focus use the following :
+ 	Then element having id "(.*?)" should have focus
+	Then element having name "(.*?)" should have focus
+	Then element having class "(.*?)" should have focus
+	Then element having xpath "(.*?)" should have focus
+	Then element having css "(.*?)" should have focus
+	    
 #### Steps For Asserting Element Text
 
 To assert element text use any of the following steps :
