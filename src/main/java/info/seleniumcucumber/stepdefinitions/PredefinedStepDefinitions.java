@@ -9,7 +9,6 @@ import cucumber.runtime.java.guice.ScenarioScoped;
 import env.DriverUtil;
 import info.seleniumcucumber.methods.BaseTest;
 import info.seleniumcucumber.methods.TestCaseFailed;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -79,6 +78,12 @@ public class PredefinedStepDefinitions implements BaseTest {
     //Step to navigate to specified URL
     @Then("^I navigate to \"([^\"]*)\"$")
     public void navigate_to(String link) {
+        navigationObj.navigateTo(link);
+    }
+
+    @Then("^I navigate to url from system variable \"([^\"]*)\"$")
+    public void navigate_to_system_variable_url(String systemVariable) {
+        String link = System.getProperty(systemVariable);
         navigationObj.navigateTo(link);
     }
 
@@ -365,6 +370,12 @@ public class PredefinedStepDefinitions implements BaseTest {
     public void enter_rand_value(String pattern, String type, String accessName) throws Exception {
         miscmethodObj.validateLocator(type);
         inputObj.enterTextRandomize(type, "", pattern, accessName);
+    }
+
+    @Then("^I enter value for \"([^\"]*)\" system variable into input field having (.+) \"([^\"]*)\"$")
+    public void enter_text_system_variable(String systemVariable, String type, String accessName) throws Exception {
+        miscmethodObj.validateLocator(type);
+        inputObj.enterText(type, System.getProperty(systemVariable), accessName);
     }
 
     // clear input field steps
